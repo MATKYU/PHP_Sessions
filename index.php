@@ -1,5 +1,17 @@
+<?php
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET)) {
+    $value = $_GET['add_to_cart'];
+    $_SESSION['cart'][] = $value;
+}
+
+?>
+
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
+
 <section class="cookies container-fluid">
     <div class="row">
         <?php foreach ($catalog as $id => $cookie) { ?>
